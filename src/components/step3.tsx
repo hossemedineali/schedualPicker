@@ -67,7 +67,7 @@ const Step3 = () => {
       </div>
       <div
         onClick={() => {
-          setStepNumber(1);
+          setStepNumber(2);
         }}
         className="flex p-3 gap-3 group hover:cursor-pointer"
       >
