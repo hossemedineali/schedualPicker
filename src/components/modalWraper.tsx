@@ -1,8 +1,9 @@
-import Steps1 from "./steps1";
 import StepsViewer from "./stepsviwer";
 import {motion} from 'framer-motion'
 import { useChoises } from "@/store/newStore";
 import Step2 from "./new/step2";
+import NewSteps1 from "./new/step1new";
+import Steps1 from "./steps1";
 
 
 const ModalWrapper = () => {
@@ -16,7 +17,7 @@ const ModalWrapper = () => {
                       
                     </div>
                     <div className=" flex-grow border ">
-                        {stepNumber==1&&<Steps1/>}
+                        {stepNumber==1&&<NewSteps1/>}
                         {stepNumber==2&&<Step2/>}
                             
                     </div>

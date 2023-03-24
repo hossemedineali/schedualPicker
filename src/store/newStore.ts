@@ -23,12 +23,14 @@ export const useModal=create<modal>()((set)=>({
 }))
 
 interface Choises{
+    hasChoosen:boolean,
     stepNumber:number,
     selectedParent:string,
     selectedChild:string,
     parentIndex:number,
     childIndex:number,
     selectedDuration:number
+    setHasChoosen:(x:boolean)=>void
     setStepNumber:(x:number)=>void
     setSelectedParten:(x:string)=>void
     setSetlectdChild:(x:string)=>void
@@ -40,12 +42,14 @@ interface Choises{
 
 
 export const useChoises=create<Choises>()((set)=>({
+  hasChoosen:false,
     stepNumber:1,
     selectedParent:'',
     selectedChild:'',
     parentIndex:-1,
     childIndex:-1,
     selectedDuration:0,
+    setHasChoosen:(x)=>set(()=>({hasChoosen:x})),
     setStepNumber:(x)=>set(()=>({stepNumber:x})),
     setSelectedParten:(x)=>set(()=>({selectedParent:x})),
     setSetlectdChild:(x)=>set(()=>({selectedChild:x})),
