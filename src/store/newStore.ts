@@ -25,6 +25,7 @@ export const useModal=create<modal>()((set)=>({
 interface Choises{
     hasChoosen:boolean,
     stepNumber:number,
+    stepName:string,
     selectedParent:string,
     selectedChild:string,
     parentIndex:number,
@@ -32,6 +33,7 @@ interface Choises{
     selectedDuration:number
     setHasChoosen:(x:boolean)=>void
     setStepNumber:(x:number)=>void
+    setStepName:(x:string)=>void
     setSelectedParten:(x:string)=>void
     setSetlectdChild:(x:string)=>void
     setParentIndex:(x:number)=>void,
@@ -44,6 +46,7 @@ interface Choises{
 export const useChoises=create<Choises>()((set)=>({
   hasChoosen:false,
     stepNumber:1,
+    stepName:'Select service',
     selectedParent:'',
     selectedChild:'',
     parentIndex:-1,
@@ -51,6 +54,7 @@ export const useChoises=create<Choises>()((set)=>({
     selectedDuration:0,
     setHasChoosen:(x)=>set(()=>({hasChoosen:x})),
     setStepNumber:(x)=>set(()=>({stepNumber:x})),
+    setStepName:(x)=>set(()=>({stepName:x})),
     setSelectedParten:(x)=>set(()=>({selectedParent:x})),
     setSetlectdChild:(x)=>set(()=>({selectedChild:x})),
     setParentIndex:(x)=>set(()=>({parentIndex:x})),

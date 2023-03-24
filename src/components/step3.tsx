@@ -21,7 +21,7 @@ const Step3 = () => {
     footer = <p>You picked {format(selected, "PP")}.</p>;
   }
 
-  const { setStepNumber, setSelectedParten, setSetlectdChild } = useChoises();
+  const { setStepNumber,setStepName, setSelectedParten, setSetlectdChild } = useChoises();
   const { toggleOpen } = useModal();
 
   type props = {
@@ -40,7 +40,7 @@ const Step3 = () => {
 
   return (
     <div className="flex flex-col h-full p-4 overflow-hidden">
-      <div className="h-10 text-2xl flex hover:cursor-pointer">
+     {/*  <div className="h-10 text-2xl flex hover:cursor-pointer">
         <span
           onClick={() => {
             toggleOpen();
@@ -52,16 +52,9 @@ const Step3 = () => {
         >
           X
         </span>
-      </div>
+      </div> */}
       <div className="flex-grow  flex items-center flex-col overflow-x-hidden overflow-y-auto  ">
-        {/*   <DatePicker
-                  inline
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date as Date)}
-                  calendarContainer={MyContainer}
-                  className=''
-                /> */}
-
+       
         <DayPicker
         className=" text-center  w-fit border    "
           mode="single"
@@ -71,7 +64,7 @@ const Step3 = () => {
 
 {selected&&<div className="h-40 grid grid-cols-3 mb-5 gap-5  flex-wrap    justify-center">
                     {hours.map((item,index)=>{
-                        return <motion.div initial={{x:'100%',opacity:0}} animate={{x:0,opacity:1}} transition={{duration:0.3 ,delay:0.2*index}} key={index} className='  h-fit  border text-center text-lg px-6 odd:bg-green-400 even:cursor-not-allowed even:bg-slate-100'>{item} </motion.div>
+                        return <motion.div initial={{y:'100%',opacity:0}} animate={{y:0,opacity:1}} transition={{duration:0.3 ,delay:0.2*index}} key={index} className='  h-fit  border text-center text-lg px-6 odd:bg-green-400 even:cursor-not-allowed even:bg-slate-100'>{item} </motion.div>
                     })}
         </div>}
       </div>
@@ -80,6 +73,7 @@ const Step3 = () => {
       <div
         onClick={() => {
           setStepNumber(2);
+          setStepName('Select agent')
         }}
         className="flex p-3 gap-3 group hover:cursor-pointer"
       >
