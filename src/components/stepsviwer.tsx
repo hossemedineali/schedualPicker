@@ -1,6 +1,6 @@
 import { useChoises } from "@/store/newStore";
 import { useStep } from "@/store/store";
-
+import {motion} from 'framer-motion'
 const steps=[1,2,3,4,5]
 
 const StepsViewer = () => {
@@ -16,6 +16,7 @@ const StepsViewer = () => {
          {stepNumber==1&&<SelectService/>}
 
          {stepNumber==2&&<SelectAgent/>}
+         {stepNumber==3&&<SelectDate/>}
 
 
     </div> );
@@ -27,7 +28,7 @@ const StepsViewer = () => {
 const SelectService=()=>{
 
 
-    return <div className=" flex text-slate-500 h-full flex-col">
+    return <motion.div initial={{x:'-10%',opacity:0}} animate={{x:0,opacity:1}} transition={{duration:1}}  className=" flex min-w-min text-slate-500 h-full flex-col">
      
         <div className="flex-grow flex">
             <div className="m-auto flex gap-2 flex-col text-center px-1">
@@ -50,7 +51,7 @@ const SelectService=()=>{
 
 </p>
         </div>
-    </div>
+    </motion.div>
 }
 
 
@@ -58,7 +59,7 @@ const SelectService=()=>{
 
 const SelectAgent=()=>{
 
-    return <div className="text-slate-500 flex h-full flex-col">
+    return <motion.div initial={{x:'-10%',opacity:0}} animate={{x:0,opacity:1}} transition={{duration:1}} className="text-slate-500 flex h-full flex-col">
      
     <div className="flex-grow flex">
         <div className="m-auto flex gap-2 flex-col text-center px-1">
@@ -81,7 +82,37 @@ const SelectAgent=()=>{
 
 </p>
     </div>
-</div>
+</motion.div>
+    
+    
+   
+}
+const SelectDate=()=>{
+
+    return <motion.div initial={{x:'-10%',opacity:0}} animate={{x:0,opacity:1}} transition={{duration:1}} className="text-slate-500 flex h-full flex-col">
+     
+    <div className="flex-grow flex">
+        <div className="m-auto flex gap-2 flex-col text-center px-1">
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-20 h-20 fill-white stroke-black mx-auto " strokeWidth={3}><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+
+    <h2 className="text-lg text-blue-600 font-medium ">Select Date & Time</h2>
+    <p className="text-sm"> Click on a date to see a timeline of available slots, click on a green time slot to reserve it
+
+</p>
+        </div>
+    </div>
+
+
+    <div className="h-16 border text-center">
+
+    <h2 className="text-md text-blue-600 font-medium ">Questions?</h2>
+    <p className="text-sm"> Call (858) 939-3746 for help
+
+</p>
+    </div>
+</motion.div>
     
     
    

@@ -2,11 +2,14 @@ import { useChoises, useModal } from "@/store/newStore";
 import { useState } from "react";
 import DatePicker, { CalendarContainer } from "react-datepicker";
 import { format } from "date-fns";
-
+import {motion} from "framer-motion"
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 
 import "react-datepicker/dist/react-datepicker.css";
+
+
+const hours=['09:00','10:00','11:00','12:00','13:00','14:00',]
 
 const Step3 = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -36,7 +39,7 @@ const Step3 = () => {
   };
 
   return (
-    <div className="flex flex-col h-full p-4">
+    <div className="flex flex-col h-full p-4 overflow-hidden">
       <div className="h-10 text-2xl flex hover:cursor-pointer">
         <span
           onClick={() => {
@@ -50,7 +53,7 @@ const Step3 = () => {
           X
         </span>
       </div>
-      <div className="flex-grow border overflow-auto">
+      <div className="flex-grow  flex items-center flex-col overflow-x-hidden overflow-y-auto  ">
         {/*   <DatePicker
                   inline
                   selected={startDate}
@@ -60,11 +63,20 @@ const Step3 = () => {
                 /> */}
 
         <DayPicker
+        className=" text-center  w-fit border    "
           mode="single"
           selected={selected}
           onSelect={setSelected}
         />
+
+{selected&&<div className="h-40 grid grid-cols-3 mb-5 gap-5  flex-wrap    justify-center">
+                    {hours.map((item,index)=>{
+                        return <motion.div initial={{x:'100%',opacity:0}} animate={{x:0,opacity:1}} transition={{duration:0.3 ,delay:0.2*index}} key={index} className='  h-fit  border text-center text-lg px-6 odd:bg-green-400 even:cursor-not-allowed even:bg-slate-100'>{item} </motion.div>
+                    })}
+        </div>}
       </div>
+
+     
       <div
         onClick={() => {
           setStepNumber(2);

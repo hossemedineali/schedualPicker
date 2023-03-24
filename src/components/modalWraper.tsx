@@ -11,14 +11,14 @@ import Step3 from "./step3";
 const ModalWrapper = () => {
     const {stepNumber,selectedChild}=useChoises()
     return ( <motion.div layout initial={{y:30,opacity:0}} animate={{y:0,opacity:1}} transition={{duration:1,ease:'anticipate'}} className="absolute top-0 left-0 right-0 bottom-0 flex bg-white">
-                <div className="border  flex w-full h-full m-auto max-w-4xl md:max-h-[475px] rounded-xl shadow-lg">
+                <div className="border  flex w-full h-full m-auto max-w-fit md:max-h-[475px] rounded-xl shadow-lg">
 
-                    <div className=" w-3/12 hidden md:flex ">
+                    <div className=" w-3/12 max-w-[240px] min-w-min hidden md:flex ">
                        
                             <StepsViewer/>
                       
                     </div>
-                    <div className=" flex-grow border ">
+                    <div className=" flex-grow border max-w-2xl ">
                         {stepNumber==1&&<NewSteps1/>}
                         {stepNumber==2&&<Step2/>}
                         {stepNumber==3&&<Step3/>}
