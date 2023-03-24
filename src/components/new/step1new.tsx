@@ -160,7 +160,7 @@ const Steps1 = () => {
     return <div className= "h-full  flex flex-col">
     <div className=" flex justify-between p-2 items-center text-xl border-b">
             <p className=" text-blue-900  font-medium text-center text-xl ">{currentStep}</p>
-            <span onClick={toggleOpen} className="text-2xl hover:cursor-pointer ">X</span>
+            <span onClick={()=>{toggleOpen();setSelectedParten('');setSetlectdChild('')}} className="text-2xl hover:cursor-pointer ">X</span>
     </div>
 
     
